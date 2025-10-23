@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nappier Hub — Issues</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:linear-gradient(90deg,#7c3aed,#06b6d4);}
+    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    .brand{font-family:'Fredoka One',sans-serif}
+  </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-6">
+  <header class="max-w-4xl mx-auto mb-6">
+    <div class="flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-teal-400 flex items-center justify-center text-white brand">N</div>
+        <div>
+          <h1 class="text-xl font-semibold">Nappier Hub</h1>
+          <p class="text-sm text-slate-500">Issue tracker • <span class="font-medium">nappier-hub.github.io</span></p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="newIssueBtn" class="px-4 py-2 rounded-md bg-sky-600 text-white hover:brightness-95">Submit Issue</button>
+        <a href="#" id="deployLink" class="text-slate-600 text-sm">Hosted on GitHub Pages</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto">
+    <div id="issues" class="space-y-4"></div>
+    <div id="emptyState" class="mt-8 max-w-2xl mx-auto text-center text-slate-500">
+      <p class="text-lg">No issues yet — be the first to report something!</p>
+      <p class="mt-2 text-sm">Click <span class="font-medium">Submit Issue</span> to open the form.</p>
+    </div>
+  </main>
+
+  <footer class="max-w-4xl mx-auto mt-10 text-center text-sm text-slate-400">
+    © kathara • Nappier Hub
+  </footer>
+</body>
+  </html>
