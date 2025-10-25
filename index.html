@@ -1,342 +1,126 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nappier Hub — Issues • Advanced</title>
-  <meta name="description" content="Nappier Hub — lightweight issue tracker demo (static, localStorage)." />  <!-- Tailwind CDN -->  <script src="https://cdn.tailwindcss.com"></script>  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kathara Tech </title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
-    :root{--glass: rgba(255,255,255,0.6);}
-    html[data-theme='dark']{background:#0b1020;color:#cbd5e1}
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
-    .brand{font-family:'Fredoka One',sans-serif}
-    /* small utilities not available in CDN-tailwind quickly */
-    .fade-in{animation:fadeIn .28s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      color: #00d9ff;
+      margin-bottom: 2rem;
+    }
+
+    .icon-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .icon-card {
+      background: #111;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      width: 180px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-card:hover {
+      transform: translateY(-5px);
+      background: #222;
+    }
+
+    .icon-card i {
+      font-size: 48px;
+      color: #00d9ff;
+    }
+
+    .icon-card span {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .icon-card p {
+      font-size: 0.8rem;
+      color: #ccc;
+      margin: 0.3rem 0 0;
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .icon-card {
+        width: 140px;
+        padding: 1.5rem 1rem;
+      }
+      .icon-card i {
+        font-size: 36px;
+      }
+      .icon-card p {
+        font-size: 0.75rem;
+      }
+    }
   </style>
 </head>
-<body class="bg-slate-50 min-h-screen p-6" data-theme="light">
-  <!-- App container -->
-  <div class="max-w-6xl mx-auto">
-    <!-- Header -->
-    <header class="flex items-center justify-between gap-4 mb-6">
-      <div class="flex items-center gap-4">
-        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-sky-500 flex items-center justify-center text-white brand text-2xl shadow-lg">N</div>
-        <div>
-          <h1 class="text-2xl font-semibold">Nappier Hub</h1>
-          <p class="text-sm text-slate-500">Lightweight issue tracker • <span id="deployedUrl" class="font-medium">nappier1.github.io/nappier-hub</span></p>
-        </div>
-      </div><div class="flex items-center gap-3">
-    <button id="newIssueBtn" class="px-4 py-2 rounded-md bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow">New Issue</button>
-    <button id="toggleTheme" class="px-3 py-2 rounded-md border border-slate-200 text-sm">Dark</button>
-    <a id="pagesLink" href="#" class="text-xs text-slate-600">View on GitHub Pages</a>
-  </div>
-</header>
+<body>
 
-<!-- Controls: search + filters -->
-<section class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center mb-6">
-  <div class="md:col-span-2">
-    <div class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border">
-      <input id="search" placeholder="Search issues, titles, descriptions..." class="flex-1 outline-none text-sm" />
-      <select id="statusFilter" class="text-sm border rounded px-2 py-1">
-        <option value="all">All statuses</option>
-        <option value="open">Open</option>
-        <option value="in-progress">In progress</option>
-        <option value="closed">Closed</option>
-      </select>
-      <select id="sortBy" class="text-sm border rounded px-2 py-1">
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-        <option value="comments">Most commented</option>
-      </select>
+  <h1>Kathara Tech Downloader</h1>
+<!--
+  <div class="icon-grid">
+    <div class="icon-card" onclick="redirectTo('https://makamesco-apk-downloader-1.onrender.com/')">
+      <i class="material-icons">android</i>
+      <span>APK</span>
+      <p>Download the latest Android apps and games safely.</p>
+    </div>
+    <br>
+  -->
+    
+
+    <div class="icon-card" onclick="redirectTo('https://maka-music-downloader.onrender.com/')">
+      <i class="material-icons">music_note</i>
+      <span>Music</span>
+      <p>Search and download MP3s from YouTube with play options.</p>
+    </div>
+<br>
+    <div class="icon-card" onclick="redirectTo('https://xvideo-downloader.onrender.com/')">
+      <i class="material-icons">videocam</i>
+      <span>X Videos</span>
+      <p>Adult content 18+ only. Download or stream videos safely.</p>
     </div>
   </div>
-
-  <div class="flex items-center gap-3 justify-end">
-    <div class="text-xs text-slate-500">Total issues: <span id="totalCount" class="font-medium">0</span></div>
-    <div class="flex items-center gap-2">
-      <button id="exportBtn" class="text-xs px-2 py-1 border rounded">Export JSON</button>
-      <button id="seedBtn" class="text-xs px-2 py-1 border rounded">Seed demo</button>
-    </div>
-  </div>
-</section>
-
-<!-- Layout: left = list, right = details -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-  <!-- List -->
-  <main class="lg:col-span-2">
-    <div id="issuesList" class="space-y-4">
-      <!-- issue cards injected here -->
-    </div>
-
-    <!-- pagination -->
-    <div class="mt-6 flex items-center justify-between text-sm text-slate-500">
-      <div id="pagerInfo">Showing 0 of 0</div>
-      <div class="flex gap-2">
-        <button id="prevPage" class="px-3 py-1 border rounded">Prev</button>
-        <button id="nextPage" class="px-3 py-1 border rounded">Next</button>
-      </div>
-    </div>
-  </main>
-
-  <!-- Right: quick stats + recent comments -->
-  <aside class="p-4 bg-white rounded-lg shadow-sm border">
-    <h3 class="font-semibold">Quick stats</h3>
-    <div class="mt-3 grid grid-cols-3 gap-2 text-center">
-      <div class="py-3 bg-slate-50 rounded"><div id="statOpen" class="text-lg font-semibold">0</div><div class="text-xs text-slate-400">Open</div></div>
-      <div class="py-3 bg-slate-50 rounded"><div id="statInProg" class="text-lg font-semibold">0</div><div class="text-xs text-slate-400">In prog</div></div>
-      <div class="py-3 bg-slate-50 rounded"><div id="statClosed" class="text-lg font-semibold">0</div><div class="text-xs text-slate-400">Closed</div></div>
-    </div>
-
-    <div class="mt-5">
-      <h4 class="text-sm font-medium">Recent comments</h4>
-      <div id="recentComments" class="mt-2 text-sm text-slate-600 space-y-2">No comments yet.</div>
-    </div>
-  </aside>
-</div>
-
-<footer class="mt-8 text-sm text-slate-400 text-center">© kathara • Nappier Hub</footer>
-
-  </div>  <!-- New Issue Modal -->  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-xl shadow-xl w-full max-w-2xl p-6">
-      <h2 class="text-lg font-semibold">Create new issue</h2>
-      <form id="issueForm" class="mt-3 space-y-3">
-        <div>
-          <label class="block text-sm text-slate-600">Title</label>
-          <input id="issueTitle" required class="mt-1 w-full border border-slate-200 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-sky-300" />
-        </div>
-        <div>
-          <label class="block text-sm text-slate-600">Description</label>
-          <textarea id="issueDesc" rows="5" required class="mt-1 w-full border border-slate-200 rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-sky-300"></textarea>
-        </div>
-        <div class="grid grid-cols-2 gap-2">
-          <input id="issueAuthor" placeholder="Your name (optional)" class="border px-3 py-2 rounded" />
-          <select id="issuePriority" class="border px-3 py-2 rounded">
-            <option value="low">Low priority</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-        <div class="flex items-center justify-end gap-2">
-          <button type="button" id="cancelModal" class="px-4 py-2 rounded-md">Cancel</button>
-          <button type="submit" class="px-4 py-2 rounded-md bg-sky-600 text-white">Create issue</button>
-        </div>
-      </form>
-    </div>
-  </div>  <!-- Issue Detail drawer (right) -->  <div id="drawer" class="fixed right-0 top-0 h-full w-full lg:w-2/5 bg-white shadow-xl border-l transform translate-x-full transition-transform z-40">
-    <div class="p-6 flex flex-col h-full">
-      <div class="flex items-start justify-between gap-2">
-        <div>
-          <h3 id="detailTitle" class="text-lg font-semibold">Issue title</h3>
-          <p id="detailMeta" class="text-xs text-slate-400">By <span id="detailAuthor">--</span> • <span id="detailTime">--</span></p>
-        </div>
-        <div class="flex items-center gap-2">
-          <button id="closeDrawer" class="px-2 py-1 text-sm border rounded">Close</button>
-        </div>
-      </div><div class="mt-4 flex-1 overflow-auto">
-    <div id="detailDesc" class="prose prose-sm text-slate-700"></div>
-
-    <div class="mt-6">
-      <h4 class="font-medium">Comments</h4>
-      <div id="detailComments" class="mt-2 space-y-2 text-sm text-slate-600">No comments yet.</div>
-
-      <form id="commentForm" class="mt-3 flex gap-2">
-        <input id="commentAuthor" placeholder="Name (optional)" class="border px-3 py-2 rounded flex-1" />
-        <input id="commentText" placeholder="Write a comment" class="border px-3 py-2 rounded flex-[2]" />
-        <button class="px-3 py-2 bg-sky-600 text-white rounded">Send</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="mt-4 text-xs text-slate-400">ID: <span id="detailId" class="font-mono text-xs">—</span></div>
-</div>
-
-  </div>  <script>
-    /* -------------------- Utilities -------------------- */
-    const uid = ()=>Math.random().toString(36).slice(2,10);
-    const nowReadable = ()=> new Date().toLocaleString();
-
-    function save(data){ localStorage.setItem('nappier_issues_v1', JSON.stringify(data)); }
-    function load(){ try{return JSON.parse(localStorage.getItem('nappier_issues_v1')||'[]')}catch(e){return []} }
-
-    function debounce(fn,wait=200){ let t; return (...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait)} }
-
-    /* -------------------- App state & pagination -------------------- */
-    let state = { issues: load(), query:'', status:'all', sort:'newest', page:1, perPage:6 };
-
-    function seedDemo(){
-      const now = Date.now();
-      state.issues = [
-        {id:uid(),title:'Landing page 404',desc:'Visitors get a 404 when clicking the logo',author:'Sam',priority:'high',status:'open',comments:[],createdAt:now-1000*60*60*24*3},
-        {id:uid(),title:'Typo in README',desc:'README uses wrong project name',author:'Alex',priority:'low',status:'closed',comments:[{author:'Chris',text:'Fixed in PR #4',time:now-1000*60*60*30}],createdAt:now-1000*60*60*24*5},
-        {id:uid(),title:'Slow load on mobile',desc:'Large hero image slows down first paint',author:'Maya',priority:'medium',status:'in-progress',comments:[],createdAt:now-1000*60*60*24*2}
-      ]; save(state.issues); render();
-    }
-
-    /* -------------------- Render helpers -------------------- */
-    function byQueryFilter(list){
-      const q = state.query.trim().toLowerCase();
-      return list.filter(i=>{
-        if(state.status !== 'all' && i.status !== state.status) return false;
-        if(!q) return true;
-        return (i.title + ' ' + i.desc + ' ' + (i.author||'')).toLowerCase().includes(q);
-      });
-    }
-
-    function sortList(list){
-      if(state.sort==='newest') return list.sort((a,b)=>b.createdAt - a.createdAt);
-      if(state.sort==='oldest') return list.sort((a,b)=>a.createdAt - b.createdAt);
-      if(state.sort==='comments') return list.sort((a,b)=>(b.comments||[]).length - (a.comments||[]).length);
-      return list;
-    }
-
-    function paginate(list){
-      const total = list.length; const totalPages = Math.max(1, Math.ceil(total/state.perPage));
-      if(state.page > totalPages) state.page = totalPages;
-      const start = (state.page-1)*state.perPage; const end = start + state.perPage;
-      return {items:list.slice(start,end), total, totalPages};
-    }
-
-    /* -------------------- Main render -------------------- */
-    function render(){
-      // persist
-      save(state.issues);
-
-      // filters
-      let list = [...state.issues];
-      list = byQueryFilter(list);
-      list = sortList(list);
-      const page = paginate(list);
-
-      // update counters
-      document.getElementById('totalCount').innerText = state.issues.length;
-      document.getElementById('statOpen').innerText = state.issues.filter(i=>i.status==='open').length;
-      document.getElementById('statInProg').innerText = state.issues.filter(i=>i.status==='in-progress').length;
-      document.getElementById('statClosed').innerText = state.issues.filter(i=>i.status==='closed').length;
-
-      // pager info
-      document.getElementById('pagerInfo').innerText = `Showing ${Math.min(state.perPage,page.total)} of ${page.total}`;
-
-      // build list
-      const container = document.getElementById('issuesList'); container.innerHTML='';
-      if(page.items.length===0){ container.innerHTML = `<div class="p-6 bg-white rounded-lg shadow border text-slate-500">No issues found. Try clearing filters or create a new issue.</div>`; }
-      for(const it of page.items){
-        const el = document.createElement('article'); el.className='bg-white p-4 rounded-lg shadow-sm border fade-in flex flex-col sm:flex-row sm:items-start gap-3';
-        el.innerHTML = `
-          <div class="flex-1">
-            <div class="flex items-start justify-between">
-              <div>
-                <h3 class="font-semibold text-lg">${escape(it.title)}</h3>
-                <p class="text-xs text-slate-400">${new Date(it.createdAt).toLocaleString()} • <span class="font-mono">${it.id}</span></p>
-              </div>
-              <div class="text-right">
-                <div class="text-sm text-slate-500">${escape(it.author||'Guest')}</div>
-                <div class="mt-2 inline-flex items-center gap-2">
-                  <span class="px-2 py-1 text-xs rounded ${badgeClass(it.status)}">${statusLabel(it.status)}</span>
-                  <span class="px-2 py-1 text-xs rounded ${priorityClass(it.priority)}">${capitalize(it.priority)}</span>
-                </div>
-              </div>
-            </div>
-            <p class="mt-3 text-slate-700">${escape(it.desc || '')}</p>
-          </div>
-
-          <div class="flex items-center gap-2 mt-3 sm:mt-0">
-            <button class="openBtn px-3 py-2 border rounded text-sm" data-id="${it.id}">Open</button>
-            <button class="deleteBtn px-3 py-2 border rounded text-sm text-red-500" data-id="${it.id}">Delete</button>
-          </div>
-        `;
-        container.appendChild(el);
+  <br>
+<p>ALL THIS IS FOR EDUCATIONAL PURPOSE ANY MISUSE AM NOT ONE TO BE HELD UPON</p>
+  <script>
+    function redirectTo(url) {
+      const card = event.currentTarget;
+      if (card.querySelector('span').textContent === 'X Videos') {
+        const confirmAdult = confirm("⚠️ Warning: Only for 18 years and above kinuthia rudi usome😂😬. Proceed?");
+        if (!confirmAdult) return;
       }
-
-      // recent comments
-      const recent = [].concat(...state.issues.map(i=>(i.comments||[]).map(c=>({...c,ref:i}))))
-        .sort((a,b)=> (b.time||0) - (a.time||0)).slice(0,5);
-      const rc = document.getElementById('recentComments'); rc.innerHTML='';
-      if(recent.length===0) rc.innerText='No comments yet.';
-      else recent.forEach(c=>{ const d = document.createElement('div'); d.className='text-sm'; d.innerHTML=`<span class="font-semibold">${escape(c.author||'Guest')}</span>: ${escape(c.text)} <span class="text-xs text-slate-400">• ${new Date(c.time).toLocaleString()}</span>`; rc.appendChild(d); });
-
-      // attach events
-      document.querySelectorAll('.openBtn').forEach(b=>b.onclick = ()=>openDrawer(b.dataset.id));
-      document.querySelectorAll('.deleteBtn').forEach(b=>b.onclick = ()=>{ if(confirm('Delete issue?')){ state.issues = state.issues.filter(x=>x.id!==b.dataset.id); state.page=1; render(); } });
-
-      // pager buttons
-      document.getElementById('prevPage').disabled = state.page<=1; document.getElementById('nextPage').disabled = state.page>=page.totalPages;
-      document.getElementById('prevPage').onclick = ()=>{ if(state.page>1){ state.page--; render(); } }
-      document.getElementById('nextPage').onclick = ()=>{ if(state.page<page.totalPages){ state.page++; render(); } }
+      window.location.href = url;
     }
+  </script>
 
-    /* -------------- small helpers --------------- */
-    function escape(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-    function capitalize(s){ return String(s||'').charAt(0).toUpperCase()+String(s||'').slice(1); }
-    function statusLabel(s){ if(s==='open')return 'Open'; if(s==='in-progress')return 'In progress'; return 'Closed'; }
-    function badgeClass(s){ if(s==='open') return 'bg-emerald-100 text-emerald-800'; if(s==='in-progress') return 'bg-amber-100 text-amber-800'; return 'bg-slate-100 text-slate-700'; }
-    function priorityClass(p){ if(p==='high') return 'bg-red-100 text-red-800'; if(p==='medium') return 'bg-yellow-100 text-yellow-800'; return 'bg-green-100 text-green-800'; }
-
-    /* -------------------- UI events -------------------- */
-    // search + filters
-    document.getElementById('search').addEventListener('input', debounce((e)=>{ state.query = e.target.value; state.page=1; render(); },220));
-    document.getElementById('statusFilter').addEventListener('change',(e)=>{ state.status = e.target.value; state.page=1; render(); });
-    document.getElementById('sortBy').addEventListener('change',(e)=>{ state.sort = e.target.value; render(); });
-
-    // new issue modal
-    const modal = document.getElementById('modal');
-    document.getElementById('newIssueBtn').onclick = ()=>{ modal.classList.remove('hidden'); modal.style.display='flex'; document.getElementById('issueTitle').focus(); }
-    document.getElementById('cancelModal').onclick = ()=>{ modal.classList.add('hidden'); modal.style.display='none'; }
-    modal.addEventListener('click',(e)=>{ if(e.target===modal){ modal.classList.add('hidden'); modal.style.display='none'; } });
-
-    // create issue
-    document.getElementById('issueForm').onsubmit = (e)=>{
-      e.preventDefault();
-      const title = document.getElementById('issueTitle').value.trim();
-      const desc = document.getElementById('issueDesc').value.trim();
-      const author = document.getElementById('issueAuthor').value.trim();
-      const priority = document.getElementById('issuePriority').value;
-      if(!title || !desc) return alert('Please provide title and description');
-      const it = { id: uid(), title, desc, author: author||'Guest', priority, status:'open', comments:[], createdAt: Date.now() };
-      state.issues.push(it); save(state.issues); document.getElementById('issueForm').reset(); modal.classList.add('hidden'); modal.style.display='none'; state.page=1; render(); openDrawer(it.id);
-    }
-
-    // drawer funcs
-    const drawer = document.getElementById('drawer');
-    function openDrawer(id){
-      const it = state.issues.find(x=>x.id===id); if(!it) return alert('Issue not found');
-      document.getElementById('detailTitle').innerText = it.title; document.getElementById('detailAuthor').innerText = it.author||'Guest';
-      document.getElementById('detailTime').innerText = new Date(it.createdAt).toLocaleString();
-      document.getElementById('detailDesc').innerText = it.desc;
-      document.getElementById('detailId').innerText = it.id;
-      renderComments(it);
-      drawer.style.transform='translateX(0)';
-      // wire comment form
-      document.getElementById('commentForm').onsubmit = (e)=>{
-        e.preventDefault(); const author = document.getElementById('commentAuthor').value.trim()||'Guest'; const text = document.getElementById('commentText').value.trim(); if(!text) return;
-        const now = Date.now(); const c = { author, text, time: now };
-        it.comments = it.comments||[]; it.comments.push(c); save(state.issues); document.getElementById('commentText').value=''; document.getElementById('commentAuthor').value=''; render(); renderComments(it);
-      }
-    }
-    document.getElementById('closeDrawer').onclick = ()=>{ drawer.style.transform='translateX(100%)'; }
-
-    function renderComments(it){ const el = document.getElementById('detailComments'); el.innerHTML=''; if(!it.comments || it.comments.length===0){ el.innerText='No comments yet.'; return; } it.comments.slice().reverse().forEach(c=>{ const d=document.createElement('div'); d.className='p-2 bg-slate-50 rounded'; d.innerHTML=`<div class="text-sm"><span class="font-semibold">${escape(c.author)}</span> <span class="text-xs text-slate-400">• ${new Date(c.time).toLocaleString()}</span></div><div class="mt-1 text-sm text-slate-700">${escape(c.text)}</div>`; el.appendChild(d); }); }
-
-    // theme toggle
-    document.getElementById('toggleTheme').onclick = ()=>{
-      const el = document.body; if(el.getAttribute('data-theme')==='light'){ el.setAttribute('data-theme','dark'); document.getElementById('toggleTheme').innerText='Light'; } else { el.setAttribute('data-theme','light'); document.getElementById('toggleTheme').innerText='Dark'; } };
-
-    // export JSON
-    document.getElementById('exportBtn').onclick = ()=>{
-      const a = document.createElement('a'); const blob = new Blob([JSON.stringify(state.issues,null,2)],{type:'application/json'}); a.href = URL.createObjectURL(blob); a.download = 'nappier-issues.json'; a.click(); URL.revokeObjectURL(a.href);
-    }
-
-    // seed button
-    document.getElementById('seedBtn').onclick = ()=>{ if(confirm('Replace current issues with demo data?')) seedDemo(); }
-
-    // quick helpers
-    document.getElementById('pagesLink').href = `https://${location.hostname}/nappier-hub/`;
-
-    // initial seed if empty
-    if(!state.issues || state.issues.length===0){ seedDemo(); }
-
-    // initial render
-    render();
-  </script></body>
-              </html>
+</body>
+</html>
