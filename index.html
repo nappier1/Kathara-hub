@@ -1,158 +1,165 @@
-
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NappierTech — Demo Template</title>
-  <meta name="description" content="Modern single-page tech site template (demo)." />
-  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAPPIER-XMD Deployment Hub</title>
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --accent2:#60a5fa;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      --container:1200px;
-      color-scheme: dark;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071022 0%, var(--bg) 100%);color:#e6eef6}
-    .wrap{max-width:var(--container);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:10px 14px;border-radius:12px;color:#05202a;text-decoration:none;font-weight:700}
-    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:48px 0}
-    .hero-inner{display:flex;flex-direction:column;gap:18px}
-    h1{font-size:clamp(28px,5vw,44px);margin:0;line-height:1.02}
-    p.lead{color:var(--muted);margin:0;max-width:64ch}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .cards{display:grid;grid-template-columns:repeat(1,1fr);gap:16px;margin-top:28px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:0 6px 24px rgba(2,6,23,0.6);}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-    .feature{padding:18px;border-radius:12px;background:var(--glass);backdrop-filter: blur(6px)}
-    .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-    .post{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:14px;border-radius:12px}
-    .muted{color:var(--muted)}
-    footer{border-top:1px solid rgba(255,255,255,0.03);margin-top:48px;padding-top:24px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-    @media (max-width:920px){.grid,.posts{grid-template-columns:repeat(2,1fr)}nav{display:none}.mobile-nav{display:flex}}
-    @media (max-width:640px){.grid,.posts{grid-template-columns:repeat(1,1fr)}header{gap:10px}.wrap{padding:18px}}
-    .kicker{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--accent);font-weight:700}
-    .small{font-size:13px}
-    .hero-visual{border-radius:14px;overflow:hidden;height:220px;background:linear-gradient(135deg,var(--accent2),#7c3aed);display:flex;align-items:center;justify-content:center}
-    .grid .feature h4,.post h3{margin:0}
+    body {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.6rem;
+      background: linear-gradient(90deg, #ff3c3c, #8b5cf6, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 35px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff3c3c, 0 0 20px #8b5cf6, 0 0 30px #00b4d8; }
+      to { text-shadow: 0 0 20px #ff3c3c, 0 0 40px #8b5cf6, 0 0 60px #00b4d8; }
+    }
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    section {
+      width: 90%;
+      max-width: 500px;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
+    }
+    section:hover {
+      transform: scale(1.02);
+    }
+    .section-title {
+      font-size: 1.4rem;
+      background: linear-gradient(90deg, #00b4d8, #8b5cf6, #ff3c3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    button, a.btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      margin: 8px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.4s;
+    }
+    .btn-green { background-color: #00b894; box-shadow: 0 0 10px #00b894; }
+    .btn-green:hover { background-color: #019374; transform: scale(1.05); }
+    .btn-dark { background-color: #1e1e1e; box-shadow: 0 0 10px #333; }
+    .btn-dark:hover { background-color: #333; transform: scale(1.05); }
+    .btn-purple { background-color: #8b5cf6; box-shadow: 0 0 10px #8b5cf6; }
+    .btn-purple:hover { background-color: #6d28d9; transform: scale(1.05); }
+    .btn-blue { background-color: #2563eb; box-shadow: 0 0 10px #2563eb; }
+    .btn-blue:hover { background-color: #1d4ed8; transform: scale(1.05); }
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 10px;
+      text-align: center;
+      outline: none;
+      font-size: 15px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+    }
+    footer span {
+      background: linear-gradient(90deg, #ff3c3c, #8b5cf6, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">NT</div>
-        <div>
-          <div style="font-weight:800">NappierTech</div>
-          <div class="small muted">Modern tech articles & tools</div>
-        </div>
-      </div><nav>
-    <a href="#features">Features</a>
-    <a href="#posts">Articles</a>
-    <a href="#about">About</a>
-    <a class="cta" href="#subscribe">Subscribe</a>
-  </nav>
-  <div class="mobile-nav" style="display:none">
-    <button onclick="toggleMenu()" aria-label="menu">☰</button>
+
+  <h1>NAPPIER</h1>
+  <div class="status-bar">
+    <div>🔋 100%</div>
+    <div>🌐 154.159.252.208</div>
   </div>
-</header>
 
-<main>
-  <section class="hero">
-    <div class="hero-inner">
-      <span class="kicker">New</span>
-      <h1>News, tutorials and tools for web builders.</h1>
-      <p class="lead">Readable, practical articles and open-source tools focused on modern web development. Built with performance and clarity in mind.</p>
-      <div class="hero-actions">
-        <a class="cta" href="#posts">Read latest</a>
-        <a href="#features" style="padding:10px 14px;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:var(--muted);font-weight:700">Explore features</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="220" height="140" rx="12" fill="url(#g)" />
-        <defs>
-          <linearGradient id="g" x1="0" x2="1">
-            <stop offset="0" stop-color="#60a5fa"/>
-            <stop offset="1" stop-color="#6ee7b7"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
+  <section>
+    <div class="section-title">🚀 Deployment Hub</div>
+    <p style="text-align:center;color:#ccc;">Deploy your NAPPIER-XMD bot easily with GitHub verification and instant setup.</p>
+    <a href="#" class="btn btn-green">🔗 Get Session Pairing Code</a>
+    <a href="https://github.com/nappier2/NAPPIER-MD.git" target="_blank" class="btn btn-dark">💻 View Latest Repository</a>
+    <a href="https://whatsapp.com/channel/0029VbBRLb04dTnRzJI0781D" target="_blank" class="btn btn-blue">📢 Join WhatsApp Channel</a>
   </section>
 
-  <section id="features" class="cards">
-    <div class="card">
-      <h3>Why this style</h3>
-      <p class="muted">Clean typography, subtle glass cards, vibrant accent gradients and a compact content-first layout. Great for tech blogs and portfolios.</p>
-    </div>
-
-    <div class="grid">
-      <div class="feature">
-        <h4>Fast & accessible</h4>
-        <p class="muted">Minimal dependencies, semantic HTML, and optimized images.</p>
-      </div>
-      <div class="feature">
-        <h4>Responsive</h4>
-        <p class="muted">Mobile-first layout that adapts across devices.</p>
-      </div>
-      <div class="feature">
-        <h4>Easy to deploy</h4>
-        <p class="muted">Works with static hosting—Vercel, Netlify or GitHub Pages.</p>
-      </div>
-    </div>
+  <section>
+    <div class="section-title">⚙️ Deploy NAPPIER-XMD</div>
+    <p style="text-align:center;color:#ccc;">Enter your GitHub username to deploy your own instance securely.</p>
+    <input type="text" placeholder="Enter GitHub Username" id="githubUser" />
+    <button class="btn btn-purple" onclick="deploy()">🚀 DEPLOY</button>
   </section>
 
-  <section id="posts">
-    <h2 style="margin-top:28px">Latest articles</h2>
-    <div class="posts">
-      <article class="post">
-        <h3>How to ship fast with static sites</h3>
-        <p class="muted small">Oct 1, 2025 • 5 min read</p>
-        <p class="muted">Step-by-step guide to building and deploying static sites for performance and low cost.</p>
-      </article>
-      <article class="post">
-        <h3>Designing components that scale</h3>
-        <p class="muted small">Sep 20, 2025 • 7 min read</p>
-        <p class="muted">Practical tips for creating reusable UI components with sensible defaults.</p>
-      </article>
-      <article class="post">
-        <h3>Optimizing images for the web</h3>
-        <p class="muted small">Aug 14, 2025 • 4 min read</p>
-        <p class="muted">Compression strategies, responsive srcset, and modern formats.</p>
-      </article>
-    </div>
+  <section>
+    <div class="section-title">ℹ️ About NAPPIER-XMD</div>
+    <p style="text-align:center;color:#aaa;">
+      NAPPIER-XMD is a powerful WhatsApp bot with advanced features for automation, moderation, and entertainment.
+      Deploy your own instance easily and enjoy next-level performance!
+    </p>
   </section>
 
-  <section id="about" style="margin-top:28px">
-    <div class="card">
-      <h3>About</h3>
-      <p class="muted">This is a compact template you can customize: change colors, typography, sections, and add your blog CMS like Netlify CMS, Ghost, or a headless CMS.</p>
-    </div>
-  </section>
+  <footer>
+    💬 DM for free guidance and support ❤️✨<br>
+    ⚡ Designed & Developed by <span>Kathara</span> ⚡
+  </footer>
 
-</main>
-
-<footer>
-  <div>© <strong>kathara</strong> — Built with care</div>
-  <div class="small muted">Follow on <a href="#" style="color:var(--accent)">Twitter</a> • <a href="#" style="color:var(--accent)">GitHub</a></div>
-</footer>
-
-  </div>  <script>
-    function toggleMenu(){
-      const nav = document.querySelector('nav');
-      if(!nav) return;
-      nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
+  <script>
+    function deploy() {
+      const user = document.getElementById('githubUser').value.trim();
+      if (user) {
+        window.open(`https://github.com/${user}`, '_blank');
+      } else {
+        alert('Please enter your GitHub username first!');
+      }
     }
-  </script></body>
+  </script>
+</body>
   </html>
